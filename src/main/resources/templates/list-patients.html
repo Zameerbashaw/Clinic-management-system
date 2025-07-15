@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Patients</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #28a745;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a.button-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a.button-link:hover {
+            background-color: #0056b3;
+        }
+
+        .add-patient-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .add-patient-link:hover {
+            background-color: #218838;
+        }
+    </style>
+   
+</head>
+<body>
+<div class="container">
+    <h2>All Patients</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Token</th>
+            <th>Symptoms</th>
+            <th>Prescription</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="patient : ${patients}">
+            <td th:text="${patient.name}"></td>
+            <td th:text="${patient.tokenNumber}"></td>
+            <td th:text="${patient.symptoms}"></td>
+            <td th:text="${patient.prescription} ?: 'Not yet prescribed'"></td>
+            <td>
+                <a class="button-link" th:href="@{/prescribe/{token}(token=${patient.tokenNumber})}">Prescribe</a>
+            </td>
+        </tr>
+    </table>
+
+    <a class="add-patient-link" href="/add-patient">+ Add New Patient</a>
+</div>
+</body>
+</html>
