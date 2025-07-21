@@ -1,19 +1,14 @@
-# Clinic-management-system
+# Clinic Management System
 
-It is a Spring Boot web application for managing patients, doctors, and reception workflows.
+A Spring Boot full-stack web app to manage clinic operations for doctors and receptionists.
 
 ## Features
-- Doctor & Receptionist login
-- Add / list / view patients
-- doctors can prescribe medicines through this
-- Secure login and data security with Spring Security
+- Add/view patients
+- Role-based login system (Doctor & Receptionist)
+- Prescription & patient history management
 
 ## Tech Stack
-- Java, Spring Boot, Spring Security
-- HTML, Thymeleaf
-- Git, GitHub
-
-## How to Run
-- Import as Maven project
-- Run `DirectionApplication.java`
-- use local host patients
+- Java
+- Spring Boot
+- JSP / Thymeleaf
+- MongoDB
