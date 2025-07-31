@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Patients</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>All Patients</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Token</th>
+                    <th>Symptoms</th>
+                    <th>Prescription</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="patient : ${patients}">
+                    <td th:text="${patient.name}"></td>
+                    <td th:text="${patient.token}"></td>
+                    <td th:text="${patient.symptoms}"></td>
+                    <td th:text="${patient.prescription}"></td>
+                    <td><a th:href="@{'/prescribe/' + ${patient.token}}">Prescribe</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <form th:action="@{/add-patient}" method="get">
+            <button type="submit">+ Add New Patient</button>
+        </form>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

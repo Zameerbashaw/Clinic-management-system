@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DirectionApplication<finserv>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "clinic.com.management.DirectionApplication",
+            "projectName": "finserv",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
